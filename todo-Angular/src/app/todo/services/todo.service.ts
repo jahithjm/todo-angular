@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Todo } from '../interface/todo';
+import { filter } from '../interface/filter.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { Todo } from '../interface/todo';
 export class TodoService {
 
   todosig=signal<Todo[]>([]);
+  filterSingal=signal<filter>(filter.all);
 
   addTodo(text:string):void {
     const newTodo:Todo = {
